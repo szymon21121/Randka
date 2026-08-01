@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ważne pytanie do Oliwki ✨</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e9;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+        .gif {
+            width: 250px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 10;
+        }
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Słodki kotek na start -->
+    <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Y1enp3a2ZkZnR3eDRvd2pnd21xYzVsYm41ZHJ3and2YnV0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cLS1Cf3xm38lxyTOwM/giphy.gif" alt="Słodki Kotek">
+    
+    <h1>Oliwka, pójdziesz ze mną na randkę? 🌹</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sucess()">TAK! 🥰</button>
+        <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Nie 😜</button>
+    </div>
+
+    <script>
+        // Funkcja uciekającego przycisku
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 50);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 50);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${Math.abs(x)}px`;
+            noBtn.style.top = `${Math.abs(y)}px`;
+        }
+
+        // Zmiana ekranu po kliknięciu TAK
+        function sucess() {
+            document.body.innerHTML = `
+                <h1 style="font-size: 3rem; color: #d63384;">Wiedziałem, że się zgodzisz! 🎉❤️</h1>
+                <p style="font-size: 1.5rem; color: #d63384;">To jesteśmy umówieni! 😉</p>
+                <img style="width: 300px; border-radius: 15px;" src="https://media.giphy.com/media/MDJ9Ib3SU15EnGL8fB/giphy.gif" alt="Szczęśliwy kotek">
+            `;
+        }
+    </script>
+</body>
+</html>
